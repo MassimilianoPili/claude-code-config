@@ -33,4 +33,19 @@ echo "--- Memoria ---"
 free -h 2>/dev/null | grep -E '^Mem:' || echo "(non disponibile)"
 echo ""
 
+# SSH Agent (servizio systemd ssh-agent.service)
+echo "--- SSH Agent ---"
+_SSH_SOCK="/run/user/$(id -u)/ssh-agent.sock"
+if [ -S "$_SSH_SOCK" ]; then
+    export SSH_AUTH_SOCK="$_SSH_SOCK"
+    if ssh-add -l >/dev/null 2>&1; then
+        echo "  Agent attivo, chiave caricata"
+    else
+        echo "  Agent attivo, NESSUNA chiave — eseguire: ssh-ensure"
+    fi
+else
+    echo "  ERRORE: socket non trovato — eseguire: systemctl --user start ssh-agent"
+fi
+echo ""
+
 exit 0
