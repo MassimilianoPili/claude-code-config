@@ -26,10 +26,14 @@ if [ -z "$CHANGES" ]; then
   exit 0
 fi
 
-# Ci sono modifiche non committate — suggerisci verifiche
+# Ci sono modifiche non committate — mostra lista file (max 10) e suggerisci verifiche
 NUM_CHANGES=$(echo "$CHANGES" | wc -l | tr -d ' ')
+FILE_LIST=$(echo "$CHANGES" | head -10 | awk '{print $NF}' | tr '\n' ', ' | sed 's/,$//')
+if [ "$NUM_CHANGES" -gt 10 ]; then
+  FILE_LIST="$FILE_LIST, ... (+$((NUM_CHANGES - 10)) altri)"
+fi
 
-jq -n --arg reason "Ci sono $NUM_CHANGES file modificati nella working directory. Prima di terminare, considera: (1) eseguire test se applicabile, (2) verificare che le modifiche siano corrette, (3) committare se richiesto dall'utente." '{
+jq -n --arg reason "Ci sono $NUM_CHANGES file modificati nella working directory ($FILE_LIST). Prima di terminare, considera: (1) eseguire test se applicabile, (2) verificare che le modifiche siano corrette, (3) committare se richiesto dall'utente." '{
   decision: "block",
   reason: $reason
 }'

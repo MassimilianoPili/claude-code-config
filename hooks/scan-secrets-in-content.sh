@@ -19,15 +19,14 @@ if [ -z "$CONTENT" ]; then
   exit 0
 fi
 
-# Escludi file che legittimamente contengono riferimenti a variabili
+# Escludi file che legittimamente contengono riferimenti a pattern
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // empty')
-# Non controllare CLAUDE.md, docs, .md, settings.json (contengono descrizioni, non secrets reali)
-if echo "$FILE_PATH" | grep -qE '\.(md|txt|json|sh)$|CLAUDE\.md'; then
+# Esclusi: docs (.md, .txt), file temporanei (/tmp/), hook stessi (.claude/hooks/)
+if echo "$FILE_PATH" | grep -qE '\.(md|txt)$|CLAUDE\.md|^/tmp/|/\.claude/hooks/'; then
   exit 0
 fi
 
 # Pattern secrets (solo valori hardcodati, non riferimenti a variabili)
-# Cerca "password = valore" o "secret = valore" con valori letterali
 SECRETS_FOUND=""
 
 # Chiave privata PEM
@@ -36,13 +35,13 @@ if echo "$CONTENT" | grep -q 'BEGIN.*PRIVATE KEY'; then
 fi
 
 # Password hardcodate con valore letterale (non ${VAR} o $VAR)
-# Cattura sia valori quotati: password="secret" che non quotati: password=secret123
-if echo "$CONTENT" | grep -qiE '(password|passwd|pwd)\s*[=:]\s*["\x27][^$\{][^"\x27]{4,}'; then
-  SECRETS_FOUND="$SECRETS_FOUND\n- Password hardcodata rilevata"
-elif echo "$CONTENT" | grep -qiE '(password|passwd|pwd)\s*[=:]\s*[A-Za-z0-9][A-Za-z0-9!@#%^*+/._-]{5,}'; then
+# Cattura valori quotati: password="secret", password: "secret"
+if echo "$CONTENT" | grep -qiE '(password|passwd|pwd|secret)\s*[=:]\s*["\x27][^$\{][^"\x27]{4,}'; then
+  SECRETS_FOUND="$SECRETS_FOUND\n- Password/secret hardcodata rilevata"
+elif echo "$CONTENT" | grep -qiE '(password|passwd|pwd|secret)\s*[=:]\s*[A-Za-z0-9][A-Za-z0-9!@#%^*+/._-]{5,}'; then
   # Escludi riferimenti a variabili ($VAR, ${VAR})
-  if ! echo "$CONTENT" | grep -qiE '(password|passwd|pwd)\s*[=:]\s*[\$]'; then
-    SECRETS_FOUND="$SECRETS_FOUND\n- Password hardcodata (non quotata) rilevata"
+  if ! echo "$CONTENT" | grep -qiE '(password|passwd|pwd|secret)\s*[=:]\s*[\$]'; then
+    SECRETS_FOUND="$SECRETS_FOUND\n- Password/secret hardcodata (non quotata) rilevata"
   fi
 fi
 
@@ -54,6 +53,32 @@ fi
 # AWS credentials
 if echo "$CONTENT" | grep -qE 'AKIA[0-9A-Z]{16}'; then
   SECRETS_FOUND="$SECRETS_FOUND\n- AWS Access Key ID rilevato"
+fi
+
+# GitHub/GitLab tokens (ghp_ classic, ghs_ server-to-server, gho_ OAuth)
+if echo "$CONTENT" | grep -qE 'gh[pso]_[A-Za-z0-9]{20,}'; then
+  SECRETS_FOUND="$SECRETS_FOUND\n- GitHub token rilevato"
+fi
+if echo "$CONTENT" | grep -qE 'glpat-[A-Za-z0-9_-]{20,}'; then
+  SECRETS_FOUND="$SECRETS_FOUND\n- GitLab token rilevato"
+fi
+
+# AI API keys (Anthropic, OpenAI)
+if echo "$CONTENT" | grep -qE 'sk-ant-[A-Za-z0-9_-]{20,}'; then
+  SECRETS_FOUND="$SECRETS_FOUND\n- Anthropic API key rilevata"
+fi
+if echo "$CONTENT" | grep -qE 'sk-[A-Za-z0-9]{20,}' | grep -qvE 'sk-ant-'; then
+  # Solo se non e' gia' catturata come Anthropic key
+  if ! echo "$CONTENT" | grep -qE 'sk-ant-'; then
+    if echo "$CONTENT" | grep -qE 'sk-[A-Za-z0-9]{20,}'; then
+      SECRETS_FOUND="$SECRETS_FOUND\n- OpenAI API key rilevata"
+    fi
+  fi
+fi
+
+# Connection string con credenziali embedded
+if echo "$CONTENT" | grep -qE '(mongodb|postgresql|mysql|redis|amqp)://[^:]+:[^@]+@'; then
+  SECRETS_FOUND="$SECRETS_FOUND\n- Connection string con credenziali rilevata"
 fi
 
 if [ -n "$SECRETS_FOUND" ]; then

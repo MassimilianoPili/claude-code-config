@@ -18,11 +18,12 @@ if [ ! -f "$MARKER" ]; then
   exit 0
 fi
 
-# Cerca file infrastrutturali modificati dopo il marker di sessione
-INFRA_CHANGED=$(find /data/massimiliano -newer "$MARKER" \( \
+# Cerca file infrastrutturali modificati dopo il marker di sessione (maxdepth 3)
+INFRA_CHANGED=$(find /data/massimiliano -maxdepth 3 -newer "$MARKER" \( \
   -name "docker-compose.yml" -o -name "docker-compose.*.yml" \
   -o -name "nginx.conf" -o -name "Dockerfile" \
   -o -name "*.service" -o -name "config.yml" \
+  -o -name "*.toml" -o -name "*.yaml" \
   -o -name "server.js" -o -name "main.go" -o -name "app.ini" \
   -o -path "*/.claude/hooks/*.sh" \
   -o -path "*/shell-scripts/bin/*" \

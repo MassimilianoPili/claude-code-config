@@ -20,9 +20,14 @@ PROTECTED_PATTERNS=(
   '\.jks$'                          # Java keystore
   '/\.ssh/'                         # Directory SSH
   '/\.gnupg/'                       # Directory GPG
+  'id_(rsa|ed25519|ecdsa)'          # Chiavi SSH (anche fuori da .ssh/)
   '/cloudflared/.*\.json$'          # Credenziali tunnel
   '/cloudflared/cert\.pem'          # Certificato tunnel
-  'credentials'                     # File con "credentials" nel nome
+  'credentials\.(json|yml|yaml|xml|properties)$'  # File credentials strutturati
+  '\.secrets$'                      # File .secrets
+  '(^|/)kubeconfig$'               # Kubernetes config
+  '/\.kube/config'                  # Kubernetes config directory
+  '/\.claude/settings\.json'        # Config Claude Code
   '/etc/'                           # File di sistema
   '/keycloak/\.env'                 # Specifico: password Keycloak
   '/postgres/\.env'                 # Specifico: password PostgreSQL

@@ -10,39 +10,53 @@ if [ -z "$COMMAND" ]; then
   exit 0
 fi
 
-# Pattern comandi pericolosi (case-insensitive dove serve)
+# Normalizza spazi multipli per evitare bypass con "rm  -rf  /"
+COMMAND_NORM=$(echo "$COMMAND" | tr -s ' ')
+
+# Pattern comandi pericolosi
 DANGEROUS_PATTERNS=(
-  'rm -rf /'
-  'rm -rf ~'
-  'rm -rf \.'
-  'rm -rf \*'
-  ':(){ :|:& };:'        # fork bomb
-  'mkfs\.'                # formattazione disco
-  'dd if='                # scrittura disco raw
-  '> /dev/sd'             # sovrascrittura disco
-  'shutdown'
-  'reboot'
+  # rm ricorsivo forzato su path critici (cattura -rf, -fr, -r -f, --recursive --force)
+  'rm\s+(-rf|-fr|-r\s+-f|-f\s+-r|--recursive\s+--force|--force\s+--recursive)\s+/'
+  'rm\s+(-rf|-fr|-r\s+-f|-f\s+-r|--recursive\s+--force|--force\s+--recursive)\s+~'
+  'rm\s+(-rf|-fr|-r\s+-f|-f\s+-r|--recursive\s+--force|--force\s+--recursive)\s+\.'
+  'rm\s+(-rf|-fr|-r\s+-f|-f\s+-r|--recursive\s+--force|--force\s+--recursive)\s+\*'
+  'rm\s+(-rf|-fr)\s+/data'
+  'rm\s+(-rf|-fr)\s+/home'
+  # rm via subshell
+  '(bash|sh)\s+-c\s+.*rm\s+-(rf|fr)'
+  # fork bomb
+  ':\(\)\s*\{.*\}.*;\s*:'
+  # formattazione disco
+  'mkfs\.'
+  # scrittura disco raw (solo device, non file normali)
+  'dd\s+.*of=/dev/sd'
+  'dd\s+.*of=/dev/nvme'
+  '>\s*/dev/sd'
+  # shutdown/reboot
+  '\bshutdown\b'
+  '\breboot\b'
   'systemctl poweroff'
   'systemctl reboot'
-  'init 0'
-  'init 6'
+  '\binit [06]\b'
+  # docker distruttivi
   'docker system prune -a'
-  'docker rm -f \$(docker ps'
-  'docker stop \$(docker ps'
-  'docker kill \$(docker ps'
-  'curl.*[|].*sh'         # pipe da internet a shell
-  'curl.*[|].*bash'
-  'wget.*[|].*sh'
-  'wget.*[|].*bash'
+  'docker compose down.*-v'
+  'docker volume prune'
+  'docker rm -f \$\(docker ps'
+  'docker stop \$\(docker ps'
+  'docker kill \$\(docker ps'
+  # pipe da internet a shell
+  'curl.*[|].*\b(ba)?sh\b'
+  'wget.*[|].*\b(ba)?sh\b'
+  # permessi pericolosi
   'chmod -R 777 /'
-  'chown -R.*/'
-  'iptables -F'           # flush firewall
-  'rm -rf /data'
-  'rm -rf /home'
+  'chown -R .* /'
+  # firewall
+  'iptables -F'
 )
 
 for pattern in "${DANGEROUS_PATTERNS[@]}"; do
-  if echo "$COMMAND" | grep -qE "$pattern"; then
+  if echo "$COMMAND_NORM" | grep -qE "$pattern"; then
     echo "BLOCCATO: comando pericoloso rilevato (pattern: $pattern)" >&2
     echo "Comando: $COMMAND" >&2
     echo "Usa un'alternativa piu' sicura o chiedi conferma all'utente." >&2

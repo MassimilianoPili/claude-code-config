@@ -15,9 +15,20 @@ if [ ! -f "$FILE_PATH" ]; then
   exit 0
 fi
 
+# Skip file grandi (> 1MB) per evitare staging accidentale di binari
+FILE_SIZE=$(stat -c%s "$FILE_PATH" 2>/dev/null || echo 0)
+if [ "$FILE_SIZE" -gt 1048576 ]; then
+  exit 0
+fi
+
 # Verifica che il file sia in un repository git
 FILE_DIR=$(dirname "$FILE_PATH")
 if ! git -C "$FILE_DIR" rev-parse --is-inside-work-tree &>/dev/null; then
+  exit 0
+fi
+
+# Skip se il file e' ignorato da .gitignore
+if git -C "$FILE_DIR" check-ignore -q "$FILE_PATH" 2>/dev/null; then
   exit 0
 fi
 
