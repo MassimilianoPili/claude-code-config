@@ -1,7 +1,7 @@
 # Claude Code Config
 
-Single source of truth per hook e skill Claude Code sul server SOL.
-I file in questo repo sono quelli attivi — Claude Code li legge direttamente via symlink.
+Single source of truth per Claude Code hooks, Git global hooks e skill sul server SOL.
+I file in questo repo sono quelli attivi — Claude Code e Git li leggono direttamente via symlink/path configurati.
 
 ## Symlink
 
@@ -9,6 +9,7 @@ I file in questo repo sono quelli attivi — Claude Code li legge direttamente v
 /data/massimiliano/.claude/hooks     → claude-code-config/hooks/
 /data/massimiliano/claude-shared/skills → claude-code-config/skills/
 ~/.claude/skills                     → claude-shared/skills (catena)
+~/.git-hooks/commit-msg              → ~/claude-code-config/git-hooks/commit-msg
 ```
 
 ## Hook (13)
@@ -53,6 +54,15 @@ Configurazione in `~/.claude/settings.json` (sezione `hooks`). Reference: `setti
 |------|--------|---------|-------------|
 | `stop-reminder.sh` | Stop | — | Avvisa se ci sono modifiche non committate |
 | `readme-update-reminder.sh` | Stop | — | Ricorda di aggiornare README/CLAUDE.md se file infra modificati |
+
+## Git Global Hooks (1)
+
+Hook Git nativi (non eventi Claude Code). Questi hook sono attivati da Git tramite
+`core.hooksPath` e non da `settings-hooks.json`.
+
+| Hook | Tipo | Descrizione |
+|------|------|-------------|
+| `git-hooks/commit-msg` | Git global hook | Rimuove automaticamente `Co-Authored-By: Claude/Anthropic` e `Generated with Claude Code` dai commit message |
 
 ## Skill (102)
 
@@ -219,6 +229,7 @@ I symlink sono gia' attivi. Per aggiornare dopo un `git pull`:
 ```bash
 cd /data/massimiliano/claude-code-config && git pull
 # Nessun altro passo — i symlink puntano direttamente qui
+# Hook Git globale gia' configurato: core.hooksPath=~/.git-hooks
 ```
 
 ### Su un'altra macchina
@@ -232,6 +243,11 @@ ln -sf ~/claude-code-config/hooks ~/.claude/hooks
 # Symlink skills
 ln -sf ~/claude-code-config/skills ~/.claude/skills
 
-# Merge la sezione hooks in settings.json
+# Git global hooks (commit-msg)
+mkdir -p ~/.git-hooks
+git config --global core.hooksPath ~/.git-hooks
+ln -snf ~/claude-code-config/git-hooks/commit-msg ~/.git-hooks/commit-msg
+
+# Merge solo hook Claude Code in settings.json
 # Copiare il contenuto di settings-hooks.json dentro ~/.claude/settings.json
 ```

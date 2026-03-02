@@ -1,0 +1,22 @@
+#!/bin/bash
+# Hook: commit-msg (git global)
+# Source of truth: claude-code-config/git-hooks/commit-msg
+
+MSG_FILE="$1"
+
+if [ ! -f "$MSG_FILE" ]; then
+  exit 0
+fi
+
+# Remove Co-Authored-By lines referencing Claude/Anthropic.
+sed -i '/[Cc]o-[Aa]uthored-[Bb]y:.*[Cc]laude/d' "$MSG_FILE"
+sed -i '/[Cc]o-[Aa]uthored-[Bb]y:.*[Aa]nthropic/d' "$MSG_FILE"
+sed -i '/[Cc]o-[Aa]uthored-[Bb]y:.*noreply@anthropic/d' "$MSG_FILE"
+
+# Remove "Generated with Claude Code" footer.
+sed -i '/Generated with.*[Cc]laude/d' "$MSG_FILE"
+
+# Trim trailing blank lines after cleanup.
+sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$MSG_FILE"
+
+exit 0
