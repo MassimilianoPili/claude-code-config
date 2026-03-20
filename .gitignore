@@ -3,3 +3,4 @@ audit/
 .env
 *.key
 *.pem
+.claude.json

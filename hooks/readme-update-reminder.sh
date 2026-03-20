@@ -34,6 +34,33 @@ if [ -z "$INFRA_CHANGED" ]; then
   exit 0
 fi
 
+# Filtra: esclude file che hanno solo modifiche staged in git (working tree pulito).
+# Questo previene falsi positivi da git stat-refresh su file staged di sessioni precedenti.
+INFRA_REAL=""
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  repo_root=$(git -C "$(dirname "$f")" rev-parse --show-toplevel 2>/dev/null)
+  if [ -n "$repo_root" ]; then
+    rel="${f#"$repo_root"/}"
+    # Includi solo se il working tree differisce dall'index (modifiche non-staged reali)
+    if ! git -C "$repo_root" diff --quiet -- "$rel" 2>/dev/null; then
+      INFRA_REAL="${INFRA_REAL}${f}"$'\n'
+    fi
+    # Includi anche se il file non e' ancora tracciato da git (nuovo, untracked)
+    if git -C "$repo_root" ls-files --others --exclude-standard -- "$rel" | grep -q .; then
+      INFRA_REAL="${INFRA_REAL}${f}"$'\n'
+    fi
+  else
+    # Non in un repo git: includi sempre
+    INFRA_REAL="${INFRA_REAL}${f}"$'\n'
+  fi
+done <<< "$INFRA_CHANGED"
+INFRA_CHANGED="$INFRA_REAL"
+
+if [ -z "$INFRA_CHANGED" ]; then
+  exit 0
+fi
+
 # Controlla se almeno un file di documentazione e' stato aggiornato
 DOC_CHANGED=""
 if [ -n "$(find /data/massimiliano -maxdepth 1 -name 'README.md' -newer "$MARKER" 2>/dev/null)" ]; then
@@ -53,7 +80,7 @@ NUM_INFRA=$(echo "$INFRA_CHANGED" | wc -l | tr -d ' ')
 # Mostra solo i nomi relativi (strip /data/massimiliano/)
 FILE_LIST=$(echo "$INFRA_CHANGED" | sed 's|/data/massimiliano/||g' | head -10 | tr '\n' ', ' | sed 's/,$//')
 
-jq -n --arg reason "Hai modificato $NUM_INFRA file infrastrutturali ($FILE_LIST) ma la documentazione (README.md, CLAUDE.md, MEMORY.md) non e' stata aggiornata. Considera di aggiornare la documentazione di riferimento prima di terminare." '{
+jq -n --arg reason "Hai modificato $NUM_INFRA file infrastrutturali ($FILE_LIST) ma documentazione e KORE non sono stati aggiornati. Considera di aggiornare MEMORY.md, CLAUDE.md e/o il knowledge graph AGE (graph_write) prima di terminare." '{
   decision: "block",
   reason: $reason
 }'

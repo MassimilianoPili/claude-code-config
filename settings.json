@@ -1,0 +1,460 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(source:*)",
+      "Bash(./gradlew clean:*)",
+      "WebFetch(domain:javadoc.io)",
+      "mcp__simoge-mcp__Generale_SIMOGE",
+      "mcp__simoge-mcp__db_list_databases",
+      "mcp__simoge-mcp__db_tables",
+      "mcp__simoge-mcp__db_query",
+      "mcp__simoge-mcp__db_count",
+      "mcp__simoge-mcp__db_list_schemas",
+      "mcp__simoge-mcp__api_health",
+      "mcp__simoge-mcp__fs_list",
+      "Read(//home/massimiliano/.m2/repository/io/github/massimilianopili/**)",
+      "Bash(ls -lh /data/massimiliano/*.sh)",
+      "Bash(docker exec nginx curl -s http://server-api:8092/ui/)",
+      "Bash(docker exec nginx curl -s -o /dev/null -w \"%{http_code}\" http://server-api:8092/ui/)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://100.86.46.84/mq/)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://100.86.46.84/mongo/)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://100.86.46.84/libsql/)",
+      "Read(//etc/profile.d/**)",
+      "Bash(ls -d /data/massimiliano/agent-framework/execution-plane/workers/*/)",
+      "WebFetch(domain:repo1.maven.org)",
+      "Bash(grep -A2 'metadata:' /data/massimiliano/agent-framework/agents/manifests/*.agent.yml)",
+      "Bash(mvn --version)",
+      "Bash(docker exec pgadmin find / -path '*/pgadmin/authenticate*' -type f)",
+      "Bash(mvn install -f execution-plane/agent-compiler-maven-plugin/pom.xml -DskipTests -q)",
+      "Bash(find /data/massimiliano/Vari -maxdepth 2 -name \"pom.xml\" -exec grep -l \"mcp-ocp-tools\\\\|mcp-docker-tools\\\\|mcp-devops-tools\" {} ;)",
+      "Read(//data/massimiliano/Vari/**)",
+      "Bash(done)",
+      "Bash(docker exec postgres psql -U keycloak -d keycloak -c \"SELECT name, value FROM realm_attribute WHERE realm_id = \\(SELECT id FROM realm WHERE name = ''sol''\\) AND \\(name LIKE ''%session%'' OR name LIKE ''%sso%'' OR name LIKE ''%token%''\\);\")",
+      "Bash(docker exec postgres psql -U keycloak -d keycloak -c \"SELECT * FROM realm WHERE name = ''sol'';\")",
+      "Bash(docker exec postgres psql -U keycloak -d keycloak -c \"SELECT name, value FROM realm_attribute WHERE realm_id = \\(SELECT id FROM realm WHERE name = ''sol''\\);\")",
+      "Bash(docker ps --format '{{.Names}} {{.Status}}' --filter name=nginx)",
+      "Bash(jar tf ~/.m2/repository/org/springframework/ai/spring-ai-model/*/spring-ai-model-*.jar)",
+      "Bash(ls -la /data/massimiliano/*.sh)",
+      "Bash(ls -lSh /data/massimiliano/claude-shared/plans/*.md)",
+      "Bash(ls -ltr *.jsonl)",
+      "Read(//data/massimiliano/**)",
+      "Bash(ls -lhS /home/massimiliano/.claude/plans/*.md)",
+      "Bash(ls -lhS /data/massimiliano/claude-shared/plans/*.md)",
+      "Bash(docker exec gitea zstd -d -c /data/gitea/actions_log/maven-libs/mcp-ocp-tools/03/3.log.zst)",
+      "Bash(for REPO in spring-ai-reactive-tools mcp-sql-tools mcp-filesystem-tools mcp-mongo-tools)",
+      "Bash(do echo -n \"$REPO: \")",
+      "Bash(gh api repos/MassimilianoPili/$REPO/actions/workflows --jq '.workflows[].name')",
+      "Bash(find mcp-* -name \"pom.xml\" -exec grep -l \"artifactId\" {} ;)",
+      "Bash(ls -lh /data/massimiliano/Vari/mcp-*/)",
+      "Bash(ls -1 /data/massimiliano/Vari/mcp-azure-tools/mcp-azure-*/pom.xml)",
+      "Bash(xargs -I {} bash -c 'echo \"\"=== {} ===\"\" && head -15 {}')",
+      "Read(//data/massimiliano/Vari/mcp-azure-tools/**)",
+      "Bash(ls -d /data/massimiliano/Vari/mcp-*-tools)",
+      "Bash(ls -d /data/massimiliano/Vari/*/)",
+      "Bash(fi)",
+      "Bash(find /data/massimiliano/agent-framework -type f -name \"*.java\" -exec grep -l \"MessageDigest\\\\|DigestUtils\\\\|Hashing\\\\|Hash256\\\\|sha\" {} ;)",
+      "Bash(docker compose up -d --build)",
+      "Bash(docker ps --format \"table {{.Names}}\\\\t{{.Status}}\\\\t{{.Ports}}\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8888/api/health -H 'Host: sol.massimilianopili.com')",
+      "Bash(curl -s http://127.0.0.1/api/health)",
+      "Bash(curl -s -o /dev/null -w 'HTTP %{http_code}' http://127.0.0.1:7682/)",
+      "Bash(docker ps --filter name=nginx --format '{{.Status}}')",
+      "Bash(systemctl --user is-active ttyd dashboard-api)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --max-time 5 http://localhost:8888/)",
+      "Bash(docker ps --format \"table {{.Names}}\\\\t{{.Image}}\\\\t{{.Status}}\")",
+      "Bash(ls -d /data/massimiliano/*/docker-compose.yml /data/massimiliano/Vari/*/docker-compose.yml)",
+      "Bash(docker ps --format \"{{.Names}}\\\\t{{.Status}}\" --filter \"name=nginx\")",
+      "Read(//proc/31035/**)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(%{time_total}s\\)\\\\n\" --max-time 10 https://sol.massimilianopili.com/ide/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(%{time_total}s\\)\\\\n\" --max-time 10 https://sol.massimilianopili.com/)",
+      "Bash(docker exec postgres psql -U gitea -d gitea -c \":*)",
+      "Bash(# Check if Gitea stores action logs on disk find /data/massimiliano/gitea/gitea-data/ -path \"\"*actions*\"\" -name \"\"*.log\"\")",
+      "Bash(journalctl --user -u dashboard-api -n 10 --no-pager)",
+      "Bash(# Check \"\"mcp\"\" directory - this might be the aggregate project ls /data/massimiliano/Vari/mcp/ cat /data/massimiliano/Vari/mcp/pom.xml)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://100.86.46.84/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://sol.massimilianopili.com/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://100.86.46.84/api/health\")",
+      "Bash(curl -s \"http://100.86.46.84/\")",
+      "Bash(docker stop code-server)",
+      "Bash(docker rm code-server)",
+      "Bash(docker ps --all --format \"table {{.Names}}\\\\t{{.Status}}\")",
+      "Bash(mvn clean install)",
+      "Read(//etc/ssh/sshd_config.d/**)",
+      "Read(//etc/ssh/**)",
+      "Bash(cat /etc/ssh/sshd_config.d/*.conf)",
+      "Bash(docker compose up -d nginx --force-recreate)",
+      "Bash(docker exec nginx nginx -t)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8888/api/notes)",
+      "Bash(grep -n '^```' /data/massimiliano/claude-shared/skills/angular-ssr/SKILL.md)",
+      "Bash(grep -n '^```' /data/massimiliano/claude-shared/skills/angular-tooling/SKILL.md)",
+      "Bash(git add README.md)",
+      "Bash(git commit -m \"Add README.md for GitHub/Maven Central\")",
+      "Bash(git commit -m \"Add README.md for GitHub\")",
+      "Bash(claude plugin install commit-commands@claude-plugins-official)",
+      "Bash(claude plugin install claude-md-management@claude-plugins-official)",
+      "Bash(claude plugin install feature-dev@claude-plugins-official)",
+      "Bash(claude plugin install hookify@claude-plugins-official)",
+      "Bash(claude plugin install code-review@claude-plugins-official)",
+      "Bash(claude plugin install code-simplifier@claude-plugins-official)",
+      "Bash(claude plugin install pr-review-toolkit@claude-plugins-official)",
+      "Bash(claude plugin install security-guidance@claude-plugins-official)",
+      "Bash(claude plugin install skill-creator@claude-plugins-official)",
+      "Bash(claude plugin install agent-sdk-dev@claude-plugins-official)",
+      "Bash(claude plugin install pyright-lsp@claude-plugins-official)",
+      "Bash(claude plugin install clangd-lsp@claude-plugins-official)",
+      "Bash(claude plugin install csharp-lsp@claude-plugins-official)",
+      "Bash(claude plugin install kotlin-lsp@claude-plugins-official)",
+      "Bash(claude plugin install lua-lsp@claude-plugins-official)",
+      "Bash(claude plugin install php-lsp@claude-plugins-official)",
+      "Bash(claude plugin install rust-analyzer-lsp@claude-plugins-official)",
+      "Bash(claude plugin install swift-lsp@claude-plugins-official)",
+      "Bash(claude plugin install example-plugin@claude-plugins-official)",
+      "Bash(echo \"EXIT_CODE=$?\")",
+      "Bash(curl -s http://localhost/architecture.html)",
+      "Bash(go vet ./...)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(docker exec postgres psql -U postgres -d agentframework -c \"SELECT version, description, success FROM flyway_schema_history ORDER BY installed_rank;\")",
+      "Bash(docker exec postgres psql -U wikijs -d wikijs -t -c \":*)",
+      "mcp__simoge-mcp__playwright_navigate",
+      "mcp__simoge-mcp__playwright_evaluate",
+      "mcp__plugin_playwright_playwright__browser_install",
+      "Bash(curl -s -X POST \"http://localhost:8080/api/v1/plans/60e1e42b-b021-47e7-9e2a-c44b4d38e5a8/items/1fce2f1e-5ffd-4bcd-97bb-f536e25eef76/retry\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar -private org.springframework.ai.chat.client.advisor.api.AdvisorChain)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar 'org.springframework.ai.chat.client.advisor.api.BaseAdvisor')",
+      "Bash(xargs javap)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar org.springframework.ai.chat.client.ChatClientRequest)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-model/1.0.0/spring-ai-model-1.0.0.jar org.springframework.ai.chat.prompt.Prompt)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar org.springframework.ai.chat.client.ChatClientResponse)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar 'org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec')",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar org.springframework.ai.chat.client.advisor.api.BaseAdvisorChain)",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar 'org.springframework.ai.chat.client.advisor.ToolCallAdvisor')",
+      "Bash(javap -cp ~/.m2/repository/org/springframework/ai/spring-ai-client-chat/1.0.0/spring-ai-client-chat-1.0.0.jar -v org.springframework.ai.chat.client.advisor.ChatModelCallAdvisor)",
+      "Bash(jar tf)",
+      "Bash(git add pom.xml README.md)",
+      "Bash(git commit:*)",
+      "Bash(git push origin main --tags)",
+      "Bash(git push github main --tags)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); r=d[''workflow_runs''][0] if d.get\\(''workflow_runs''\\) else {}; print\\(f''Run #{r.get\\(\"\"id\"\",\"\"?\"\"\\)} — {r.get\\(\"\"status\"\",\"\"?\"\"\\)} — {r.get\\(\"\"conclusion\"\",\"\"pending\"\"\\)}''\\)\")",
+      "Bash(go build -o /dev/null .)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(deploy-mirror --setup-secrets --key /tmp/gitea-mirror-key --token \"a9e88be3df2dbe784525ad6479fdd146c727e7a6\")",
+      "WebFetch(domain:www.cs.ox.ac.uk)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(curl -s http://localhost:8891/api/age/graph)",
+      "Bash(python3 -c \" import json,sys d=json.load\\(sys.stdin\\) types={} domains={} for n in d[''nodes'']: t=n[''type''] types[t]=types.get\\(t,0\\)+1 dom=n.get\\(''props'',{}\\).get\\(''domain'',''\\(none\\)''\\) domains[dom]=domains.get\\(dom,0\\)+1 print\\(''Node types:'',json.dumps\\(types,indent=2\\)\\) print\\(''Domains:'',json.dumps\\(domains,indent=2\\)\\) print\\(''Total nodes:'',len\\(d[''nodes'']\\),''edges:'',len\\(d[''edges'']\\)\\) \")",
+      "Bash(python3 -c \":*)",
+      "mcp__simoge-mcp__graph_stats",
+      "mcp__simoge-mcp__infra_get_service",
+      "mcp__simoge-mcp__infra_port_map",
+      "mcp__simoge-mcp__infra_find_by_auth",
+      "mcp__simoge-mcp__infra_get_dependencies",
+      "mcp__simoge-mcp__infra_get_db_consumers",
+      "mcp__simoge-mcp__infra_search",
+      "mcp__simoge-mcp__infra_get_route",
+      "mcp__simoge-mcp__embeddings_search_docs",
+      "mcp__simoge-mcp__docker_ping",
+      "mcp__simoge-mcp__embeddings_stats",
+      "mcp__simoge-mcp__embeddings_reindex",
+      "WebSearch",
+      "WebFetch(domain:docs.requarks.io)",
+      "mcp__simoge-mcp__embeddings_search",
+      "mcp__simoge-mcp__infra_update_status",
+      "mcp__simoge-mcp__graph_write",
+      "mcp__simoge-mcp__auth_get_client",
+      "mcp__simoge-mcp__web_fetch",
+      "mcp__simoge-mcp__web_fetch_chunk",
+      "mcp__simoge-mcp__web_ingest_from_extract",
+      "mcp__simoge-mcp__web_search",
+      "WebFetch(domain:api.semanticscholar.org)",
+      "WebFetch(domain:arxiv.org)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_fill_form",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__simoge-mcp__graph_query",
+      "Bash(git add docker/sandbox/build-sandbox-images.sh docker/sandbox/Dockerfile.rust docker/sandbox/Dockerfile.cpp docker/sandbox/Dockerfile.dotnet8 execution-plane/worker-sdk/src/main/java/com/agentframework/worker/sandbox/SandboxExecutor.java execution-plane/worker-sdk/src/main/java/com/agentframework/worker/sandbox/SandboxProperties.java execution-plane/worker-sdk/src/main/java/com/agentframework/worker/sandbox/SandboxAutoConfiguration.java execution-plane/worker-sdk/src/test/java/com/agentframework/worker/sandbox/SandboxExecutorTest.java execution-plane/worker-sdk/src/test/java/com/agentframework/worker/sandbox/SandboxExecutorIntegrationTest.java)",
+      "mcp__simoge-mcp__openalex_neighborhood",
+      "Bash(docker port:*)",
+      "Bash(/opt/maven/bin/mvn clean:*)",
+      "Bash(docker exec:*)",
+      "mcp__simoge-mcp__embeddings_search_conversations",
+      "Bash(git add:*)",
+      "mcp__simoge-mcp__gitea_list_repos",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "Bash(ssh gaia:*)",
+      "mcp__simoge-mcp__claude_task_enqueue",
+      "mcp__simoge-mcp__claude_task_list",
+      "mcp__simoge-mcp__claude_task_claim",
+      "mcp__simoge-mcp__claude_task_complete",
+      "Bash(git push:*)"
+    ],
+    "defaultMode": "plan",
+    "additionalDirectories": [
+      "/data/massimiliano/$SRC",
+      "/data/massimiliano/shell-scripts/bin",
+      "/tmp"
+    ],
+    "web_search": "always",
+    "web_fetch": "always"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/block-dangerous-commands.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/git-push-guard.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/reversibility-guard.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/protect-sensitive-files.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/scan-secrets-in-content.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/validate-research-report.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/auto-shellcheck.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/auto-gofmt.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/auto-stage.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/complexity-gate.sh",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/behavior-verify.sh",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/failure-advisor.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__simoge-mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/claude-code-config/hooks/tool-outcome-tracker.sh",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/context-drift-detector.sh",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/unified-audit-log.sh",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/phase-tracker.sh",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/context-pressure-estimator.sh",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/session-context-loader.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh startup"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/session-registry.sh startup"
+          }
+        ]
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh resume"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/session-registry.sh resume"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/compact-context-restorer.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/compact-context-preserver.sh"
+          }
+        ]
+      }
+    ],
+    "ConfigChange": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/config-audit.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/auto-memory-corrections.sh",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/stop-reminder.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/readme-update-reminder.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/validate-staged-secrets.sh"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/session-registry.sh stop"
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/session-events-writer.sh",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh stop",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "commit-commands@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "agent-sdk-dev@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "csharp-lsp@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "php-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "greptile@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "asana@claude-plugins-official": true,
+    "linear@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "firebase@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "stripe@claude-plugins-official": true,
+    "laravel-boost@claude-plugins-official": true
+  },
+  "effortLevel": "high"
+}

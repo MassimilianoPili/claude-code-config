@@ -81,6 +81,40 @@ if echo "$CONTENT" | grep -qE '(mongodb|postgresql|mysql|redis|amqp)://[^:]+:[^@
   SECRETS_FOUND="$SECRETS_FOUND\n- Connection string con credenziali rilevata"
 fi
 
+# Layer 2: Entropy check per stringhe ad alta entropia (token/key casuali non catturati dai pattern)
+# Shannon entropy > 4.5 su stringhe alfanumeriche > 20 char = probabile secret
+calc_entropy() {
+  local s="$1"
+  local len=${#s}
+  [ "$len" -lt 20 ] && echo "0" && return
+  python3 -c "
+import math, collections, sys
+s = sys.argv[1]
+freq = collections.Counter(s)
+n = len(s)
+h = -sum((c/n) * math.log2(c/n) for c in freq.values())
+print(f'{h:.2f}')
+" "$s" 2>/dev/null || echo "0"
+}
+
+# Estrai stringhe alfanumeriche lunghe (potenziali token/key) non gia' catturate dai pattern
+HIGH_ENTROPY_FOUND=""
+while IFS= read -r candidate; do
+  [ -z "$candidate" ] && continue
+  # Salta se gia' catturato dai pattern regex sopra
+  echo "$candidate" | grep -qE '^(AKIA|gh[pso]_|glpat-|sk-ant-|sk-)' && continue
+  # Salta riferimenti a variabili
+  echo "$candidate" | grep -qE '^\$' && continue
+  ENT=$(calc_entropy "$candidate")
+  if [ "$(echo "$ENT > 4.5" | bc -l 2>/dev/null)" = "1" ]; then
+    HIGH_ENTROPY_FOUND="$HIGH_ENTROPY_FOUND\n- Stringa ad alta entropia (H=${ENT}): ${candidate:0:12}..."
+  fi
+done < <(echo "$CONTENT" | grep -oE '[A-Za-z0-9+/=_-]{20,}' | head -10)
+
+if [ -n "$HIGH_ENTROPY_FOUND" ]; then
+  SECRETS_FOUND="$SECRETS_FOUND$HIGH_ENTROPY_FOUND"
+fi
+
 if [ -n "$SECRETS_FOUND" ]; then
   echo "ATTENZIONE: possibili secrets nel contenuto da scrivere" >&2
   echo -e "File: $FILE_PATH" >&2
