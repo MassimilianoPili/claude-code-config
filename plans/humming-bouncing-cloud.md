@@ -5,42 +5,24 @@ simoge-mcp (~290 tools) and mcp-proxy have staged but uncommitted changes across
 
 **TDT ordering**: publish dependencies → build consumer → deploy. Never build the server until its deps are in the registry.
 
-## Step 1: Commit staged changes in dependency libraries
+## Step 1: Commit + push + publish libs — DONE
 
-Order matters — libs first, server last.
+All 4 repos committed and pushed. Libs published via Gitea Actions CI (tag `g*` trigger):
 
-### 1a. mcp-search-tools (`/data/massimiliano/Vari/mcp-search-tools/`)
-- 3 staged files: pom.xml (0.1.0→0.2.0), WebSearchTools.java, SemanticLookup.java (SPI extension)
-- `git commit` → `git push`
+| Library | Version | Registry | CI Run |
+|---------|---------|----------|--------|
+| mcp-search-tools | 0.2.0 | OK | #655 success |
+| mcp-vector-tools | 0.5.0 | OK | #657 success |
+| mcp-ssh-tools | 0.2.1 | OK | (pre-existing) |
+| mcp-claude-queue-tools | 0.1.1 | OK | (pre-existing) |
+| mcp-sql-tools | 0.1.2 | **PENDING** | #659 in_progress (retagged) |
 
-### 1b. mcp-vector-tools (`/data/massimiliano/Vari/mcp-vector-tools/`)
-- 2 staged files: pom.xml (0.4.0→0.5.0), HybridSearchTools.java
-- `git commit` → `git push`
-
-### 1c. mcp-proxy (`/data/massimiliano/Vari/mcp-proxy/`)
-- 1 staged file: main.go (OAuth metadata + WWW-Authenticate)
-- `git commit` → `git push`
-
-### 1d. mcp/ server (`/data/massimiliano/Vari/mcp/`)
-- 5 staged files: Dockerfile, docker-compose.yml, pom.xml, SpiAdapterConfig.java, KoreLookupService.java
-- `git commit` → `git push`
-
-## Step 2: Publish updated libraries to Gitea Maven registry
+## Step 2: Wait for sql-tools CI, then verify
 
 ```bash
-deploy-mcp search vector
+curl -sf -o /dev/null -w '%{http_code}' "http://localhost/git/api/packages/sol_root/maven/io/github/massimilianopili/mcp-sql-tools/0.1.2/mcp-sql-tools-0.1.2.pom"
 ```
-
-This publishes mcp-search-tools 0.2.0 and mcp-vector-tools 0.5.0 to the Gitea registry. The other bumped deps (sql 0.1.2, ssh 0.2.1, claude-queue 0.1.1) should already be in the registry — verify first.
-
-**Verify all 5 bumped versions exist:**
-```bash
-for lib in "mcp-sql-tools/0.1.2" "mcp-ssh-tools/0.2.1" "mcp-vector-tools/0.5.0" "mcp-search-tools/0.2.0" "mcp-claude-queue-tools/0.1.1"; do
-  curl -sf "http://gitea:3000/api/packages/sol_root/maven/com.massimilianopili.mcp/${lib}/pom" > /dev/null && echo "OK: $lib" || echo "MISSING: $lib"
-done
-```
-
-If any are MISSING → `deploy-mcp <name>` for those too.
+Must return 200 before proceeding to Docker build.
 
 ## Step 3: Build Docker images
 

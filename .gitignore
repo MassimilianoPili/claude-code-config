@@ -1,9 +1,17 @@
+# API key config
+.claude.json
+
+# Conversations (2.2GB, on HDD RAID1)
+projects
+
+# Plugin runtime (regenerated from marketplace)
+plugins/cache/
+plugins/marketplaces/
+plugins/*.tmp
+
+# Misc
 *.log
 audit/
 .env
 *.key
 *.pem
-.claude.json
-projects
-plugins/cache/
-plugins/data/

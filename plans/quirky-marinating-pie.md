@@ -145,10 +145,10 @@ Verify: `graph_stats(backend="age")`, `embeddings_stats`, `openalex-download --s
 
 ## Implementation Order
 
-1. Fix `execute_age()` transaction batching (biggest bang: 10-50x speedup)
-2. Add AGE indexes (quick SQL, big impact on MERGE lookups)
-3. Stream entity nodes in import Pass 1
-4. Test with economics.jsonl (smallest domain, 37K papers)
+1. ~~Fix `execute_age()` transaction batching~~ — DONE (TX_BATCH=500, toggle autocommit)
+2. ~~Add AGE indexes~~ — DONE (5 indexes on Paper/Author/Venue/Topic/Institution using `(properties -> '"key"'::agtype)`)
+3. ~~Stream entity nodes in import Pass 1~~ — DONE (inline streaming with dedup sets)
+4. Test with economics.jsonl (smallest domain, 37K papers) — **NEXT**
 5. Run full S2 import sequentially
 6. Add partition caching to download
 7. Add JSONL output mode to download
