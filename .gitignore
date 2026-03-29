@@ -9,6 +9,9 @@ plugins/cache/
 plugins/marketplaces/
 plugins/*.tmp
 
+# Override global gitignore (data/ excluded globally for Docker volumes)
+!plugins/data/
+
 # Misc
 *.log
 audit/
