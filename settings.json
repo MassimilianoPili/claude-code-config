@@ -192,7 +192,46 @@
       "mcp__simoge-mcp__claude_task_list",
       "mcp__simoge-mcp__claude_task_claim",
       "mcp__simoge-mcp__claude_task_complete",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "mcp__simoge-mcp__gitea_create_repo",
+      "mcp__simoge-mcp__gitea_list_workflow_runs",
+      "mcp__simoge-mcp__gitea_get_workflow_run",
+      "mcp__simoge-mcp__auth_get_flow",
+      "mcp__simoge-mcp__llm_list_models",
+      "mcp__simoge-mcp__auth_get_user",
+      "mcp__simoge-mcp__auth_list_clients",
+      "mcp__simoge-mcp__mcp_ping",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "mcp__simoge-mcp__keycloak_get_client",
+      "mcp__simoge-mcp__code_list_symbols",
+      "mcp__simoge-mcp__code_stats",
+      "mcp__simoge-mcp__code_get_imports",
+      "mcp__simoge-mcp__code_find_definition",
+      "mcp__simoge-mcp__code_unused_imports",
+      "mcp__simoge-mcp__code_find_references",
+      "WebFetch(domain:mvnrepository.com)",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "mcp__simoge-mcp__claude_who",
+      "mcp__simoge-mcp__claude_list_inboxes",
+      "mcp__simoge-mcp__claude_send",
+      "mcp__simoge-mcp__claude_read",
+      "Bash(sol version:*)",
+      "Bash(sol deploy:*)",
+      "mcp__simoge-mcp__gitea_check_registry",
+      "mcp__simoge-mcp__package_pipeline_status",
+      "mcp__simoge-mcp__research_validate_paper",
+      "mcp__simoge-mcp__tool_info",
+      "mcp__simoge-mcp__redis_get",
+      "mcp__simoge-mcp__channel_sessions",
+      "mcp__simoge-mcp__tool_search",
+      "mcp__simoge-mcp__playwright_snapshot",
+      "mcp__simoge-mcp__playwright_click",
+      "mcp__simoge-mcp__playwright_get_content",
+      "Bash(grep -oP 'ERROR[^\"\"\"\"\\\\\\\\]*|deploy:deploy-file[^\"\"\"\"\\\\\\\\]*|409[^\"\"\"\"\\\\\\\\]*|Conflict[^\"\"\"\"\\\\\\\\]*|failed[^\"\"\"\"\\\\\\\\]{0,100}' /home/massimiliano/.claude/projects/-data-massimiliano/48c2720f-1df3-45b5-96ac-db6452bedb81/tool-results/mcp-simoge-mcp-playwright_get_content-1774733546252.txt)",
+      "mcp__simoge-mcp__keycloak_list_clients"
     ],
     "defaultMode": "plan",
     "additionalDirectories": [
@@ -210,15 +249,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/block-dangerous-commands.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/block-dangerous-commands.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/git-push-guard.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/git-push-guard.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/reversibility-guard.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/reversibility-guard.sh"
           }
         ]
       },
@@ -227,15 +266,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/protect-sensitive-files.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/protect-sensitive-files.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/scan-secrets-in-content.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/scan-secrets-in-content.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/validate-research-report.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/validate-research-report.sh"
           }
         ]
       }
@@ -246,24 +285,24 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/auto-shellcheck.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/auto-shellcheck.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/auto-gofmt.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/auto-gofmt.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/auto-stage.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/auto-stage.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/complexity-gate.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/complexity-gate.sh",
             "async": true
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/behavior-verify.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/behavior-verify.sh",
             "async": true
           }
         ]
@@ -273,7 +312,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/failure-advisor.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/failure-advisor.sh"
           }
         ]
       },
@@ -292,22 +331,22 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/context-drift-detector.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/context-drift-detector.sh",
             "async": true
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/unified-audit-log.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/unified-audit-log.sh",
             "async": true
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/phase-tracker.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/phase-tracker.sh",
             "async": true
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/context-pressure-estimator.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/context-pressure-estimator.sh",
             "async": true
           }
         ]
@@ -319,15 +358,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/session-context-loader.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/session-context-loader.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh startup"
+            "command": "/data/massimiliano/claude-code-config/hooks/chat-tracker.sh startup"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/session-registry.sh startup"
+            "command": "/data/massimiliano/claude-code-config/hooks/session-registry.sh startup"
           }
         ]
       },
@@ -336,15 +375,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh resume"
+            "command": "/data/massimiliano/claude-code-config/hooks/chat-tracker.sh resume"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/session-registry.sh resume"
+            "command": "/data/massimiliano/claude-code-config/hooks/session-registry.sh resume"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/compact-context-restorer.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/compact-context-restorer.sh"
           }
         ]
       }
@@ -354,7 +393,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/compact-context-preserver.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/compact-context-preserver.sh"
           }
         ]
       }
@@ -364,7 +403,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/config-audit.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/config-audit.sh"
           }
         ]
       }
@@ -374,7 +413,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/auto-memory-corrections.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/auto-memory-corrections.sh",
             "async": true
           }
         ]
@@ -385,28 +424,28 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/stop-reminder.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/stop-reminder.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/readme-update-reminder.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/readme-update-reminder.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/validate-staged-secrets.sh"
+            "command": "/data/massimiliano/claude-code-config/hooks/validate-staged-secrets.sh"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/session-registry.sh stop"
+            "command": "/data/massimiliano/claude-code-config/hooks/session-registry.sh stop"
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/session-events-writer.sh",
+            "command": "/data/massimiliano/claude-code-config/hooks/session-events-writer.sh",
             "async": true
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/.claude/hooks/chat-tracker.sh stop",
+            "command": "/data/massimiliano/claude-code-config/hooks/chat-tracker.sh stop",
             "async": true
           }
         ]
@@ -423,7 +462,7 @@
     "pr-review-toolkit@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "agent-sdk-dev@claude-plugins-official": true,
+    "agent-sdk-dev@claude-plugins-official": false,
     "plugin-dev@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "playground@claude-plugins-official": true,
@@ -442,19 +481,19 @@
     "php-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "gitlab@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "greptile@claude-plugins-official": true,
-    "serena@claude-plugins-official": true,
-    "asana@claude-plugins-official": true,
-    "linear@claude-plugins-official": true,
-    "slack@claude-plugins-official": true,
-    "firebase@claude-plugins-official": true,
-    "supabase@claude-plugins-official": true,
-    "stripe@claude-plugins-official": true,
-    "laravel-boost@claude-plugins-official": true
+    "github@claude-plugins-official": false,
+    "gitlab@claude-plugins-official": false,
+    "playwright@claude-plugins-official": false,
+    "context7@claude-plugins-official": false,
+    "greptile@claude-plugins-official": false,
+    "serena@claude-plugins-official": false,
+    "asana@claude-plugins-official": false,
+    "linear@claude-plugins-official": false,
+    "slack@claude-plugins-official": false,
+    "firebase@claude-plugins-official": false,
+    "supabase@claude-plugins-official": false,
+    "stripe@claude-plugins-official": false,
+    "laravel-boost@claude-plugins-official": false
   },
-  "effortLevel": "high"
+  "effortLevel": "max"
 }

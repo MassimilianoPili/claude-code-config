@@ -4,3 +4,4 @@ audit/
 *.key
 *.pem
 .claude.json
+projects
