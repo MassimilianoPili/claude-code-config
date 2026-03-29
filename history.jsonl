@@ -1,0 +1,99 @@
+{"display": "Session 6553973c...", "pastedContents": {}, "timestamp": 1771770061377, "project": "/home/massimiliano", "sessionId": "6553973c-e0fa-48a3-94bf-fe8eed50787d"}
+{"display": "esamina il claudeRss e verifica cosa manca per ottenere un apk da poter utilizzare", "pastedContents": {}, "timestamp": 1771780263418, "project": "/data/massimiliano", "sessionId": "8bcdee39-ec1e-417f-9d18-51c545d3b7d8"}
+{"display": "verifica cosa devo fare per pubblicare su maven central spring-ai-reactive-tools", "pastedContents": {}, "timestamp": 1771780410715, "project": "/data/massimiliano", "sessionId": "e897e319-96ae-4da1-b4a2-4e908a33d614"}
+{"display": "Session e4296a21...", "pastedContents": {}, "timestamp": 1771786792414, "project": "/data/massimiliano", "sessionId": "e4296a21-3998-4b56-b439-272e52d7b25c"}
+{"display": "Session f328a0a1...", "pastedContents": {}, "timestamp": 1771786798103, "project": "/data/massimiliano", "sessionId": "f328a0a1-29da-46fd-85c4-16d8e4f7a325"}
+{"display": "sono connesso con tailscale ad un server\ncome posso portare un .apk sul telefono anch'esso su tailsc", "pastedContents": {}, "timestamp": 1771791595700, "project": "/data/massimiliano", "sessionId": "048246c6-60fe-4f30-9887-a5b355a5945c"}
+{"display": "https://github.com/MassimilianoPili/mongo_parser.MassimilianoPili\nmaybe we should update that?\ngiven", "pastedContents": {}, "timestamp": 1771795432731, "project": "/data/massimiliano", "sessionId": "a1e889fb-44a1-4878-afe6-bf86f9f8b02e"}
+{"display": "mi serbirebbe tmux e arpoon per istanziare claude e lasciarlo runnare nel server anche quando mi dic", "pastedContents": {}, "timestamp": 1771806166358, "project": "/data/massimiliano", "sessionId": "63711711-2662-46f8-ba61-af6d9092d898"}
+{"display": "vedi il server mcp\nvorrei spaccarlo in vari moduli, uno per categoria: azure, mongo, sql, etc", "pastedContents": {}, "timestamp": 1771847391312, "project": "/data/massimiliano", "sessionId": "effe27a1-e0c7-4e9c-95ba-02d5ae2c9571"}
+{"display": "Command \"/bin/bash -lc echo\\ REMOTE_EXEC_OUTPUT_MARKER_\\ \\&\\&\\ curl\\ -fSL\\ --output\\ /home/massimili", "pastedContents": {}, "timestamp": 1771853590847, "project": "/data/massimiliano", "sessionId": "43c8dcdd-5ccd-4a47-86a6-05426856cad8"}
+{"display": "Session d34396a8...", "pastedContents": {}, "timestamp": 1771853839090, "project": "/data/massimiliano", "sessionId": "d34396a8-23e2-4594-b291-68bf8b8b608f"}
+{"display": "claude da vsCode in ssh non mi sta salvando lo storico", "pastedContents": {}, "timestamp": 1771855291723, "project": "/data/massimiliano/Vari", "sessionId": "ccb77553-315f-46ba-8f82-dd14fb708911"}
+{"display": "dovrei installare intellij per usarelo in ssh da gateway\ndovrebbe già esserci un .sh e un parzxiale ", "pastedContents": {}, "timestamp": 1771855329396, "project": "/data/massimiliano/Vari", "sessionId": "775cb3bf-6546-46ba-b95e-1cd6acd4cfeb"}
+{"display": "Claude RSS stavomo vedeno delle modifiche recuper il piano corretto", "pastedContents": {}, "timestamp": 1771855349766, "project": "/data/massimiliano/Vari", "sessionId": "c57d0b84-2810-4f51-8347-75a4b1d7f65d"}
+{"display": "librerie mpc controlla che siano state tutte pushate su github", "pastedContents": {}, "timestamp": 1771855388134, "project": "/data/massimiliano/Vari", "sessionId": "c213ac47-2efb-4392-abfa-34effc8579c5"}
+{"display":"/resume ","pastedContents":{},"timestamp":1771856002347,"project":"/home/massimiliano","sessionId":"c8cb91e7-0685-4c2b-a1c1-d8ab57a025b1"}
+{"display":"mi riscrivi il comando ad lanciare","pastedContents":{},"timestamp":1771856035342,"project":"/home/massimiliano","sessionId":"c8cb91e7-0685-4c2b-a1c1-d8ab57a025b1"}
+{"display":"/resume ","pastedContents":{},"timestamp":1771856046886,"project":"/home/massimiliano","sessionId":"c8cb91e7-0685-4c2b-a1c1-d8ab57a025b1"}
+{"display":"mi scrivi il comando da lancirae per scaricare intellij come avemvao detto","pastedContents":{},"timestamp":1771856080888,"project":"/home/massimiliano","sessionId":"c8cb91e7-0685-4c2b-a1c1-d8ab57a025b1"}
+{"display":"exit","pastedContents":{},"timestamp":1771856273540,"project":"/home/massimiliano","sessionId":"c8cb91e7-0685-4c2b-a1c1-d8ab57a025b1"}
+{"display":"test","pastedContents":{},"timestamp":1771856918047,"project":"/data/massimiliano","sessionId":"3aedca17-3a93-4fb3-8058-2dbd77968dae"}
+{"display":"exit","pastedContents":{},"timestamp":1771857024787,"project":"/data/massimiliano","sessionId":"3aedca17-3a93-4fb3-8058-2dbd77968dae"}
+{"display":"vorrei utilizazr evi e non nano come git resolve dei commenti","pastedContents":{},"timestamp":1771857438299,"project":"/data/massimiliano","sessionId":"f3132368-1661-4d0d-b108-fcf5cf9e2b7f"}
+{"display":"exit","pastedContents":{},"timestamp":1771857455023,"project":"/data/massimiliano","sessionId":"f3132368-1661-4d0d-b108-fcf5cf9e2b7f"}
+{"display":"/model ","pastedContents":{},"timestamp":1771884918280,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"/","pastedContents":{},"timestamp":1771884935322,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"/config ","pastedContents":{},"timestamp":1771884948498,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"[Pasted text #1 +23 lines]","pastedContents":{"1":{"id":1,"type":"text","contentHash":"4302e9a7106ae27a"}},"timestamp":1771885075928,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":" 99  834M   99  832M    0     0   751k      0  0:18:57  0:18:55  0:00:02 99  834M   99  834M    0     0   751k      0  0:18:56  0:18:55  0:00:01100  834M  100  834M    0     0   751k      0  0:18:56  0:18:56 --:--:--  428k\nDone! check","pastedContents":{},"timestamp":1771885492706,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"how to paste an image","pastedContents":{},"timestamp":1771885984778,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"hai scaricato l'ide in coreano\n","pastedContents":{},"timestamp":1771886349824,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"andata puliamo le altre versioni","pastedContents":{},"timestamp":1771887590451,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"scrividirettamente il comando","pastedContents":{},"timestamp":1771887834011,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"runned","pastedContents":{},"timestamp":1771887878717,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"t","pastedContents":{},"timestamp":1771888195417,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"exit","pastedContents":{},"timestamp":1771888199120,"project":"/data/massimiliano","sessionId":"b258affd-20a4-4719-9ae4-b700571d6d93"}
+{"display":"vorrei creare un backup del pc in /backup\nverrebbe caricato da moba xterm da un altro pc \nci sarebbe un metodo migliore?","pastedContents":{},"timestamp":1771925591510,"project":"/backup","sessionId":"eaabcab9-54a0-4215-ba8c-aac047a773ff"}
+{"display":"test","pastedContents":{},"timestamp":1772231993908,"project":"/data/massimiliano","sessionId":"b1b0d8d8-e383-412d-a199-b1f34613ce8c"}
+{"display":"/rate-limit-options","pastedContents":{},"timestamp":1772231995858,"project":"/data/massimiliano","sessionId":"b1b0d8d8-e383-412d-a199-b1f34613ce8c"}
+{"display":"/permissions ","pastedContents":{},"timestamp":1772232173335,"project":"/data/massimiliano","sessionId":"b1b0d8d8-e383-412d-a199-b1f34613ce8c"}
+{"display":"exit","pastedContents":{},"timestamp":1772233836971,"project":"/data/massimiliano","sessionId":"118e6b9d-8d5c-457a-afcc-591468c14363"}
+{"display":"/agents","pastedContents":{},"timestamp":1772964684057,"project":"/data/massimiliano","sessionId":"8aedc6b9-c893-47f0-9804-20614baffd2a"}
+{"display":"/agents","pastedContents":{},"timestamp":1772964684554,"project":"/data/massimiliano","sessionId":"8aedc6b9-c893-47f0-9804-20614baffd2a"}
+{"display":"type $env:USERPROFILE\\.ssh\\id_ed25519.pub | ssh massimiliano@192.168.43.190 \"mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh\"","pastedContents":{},"timestamp":1773699216410,"project":"/home/massimiliano","sessionId":"13ca57cf-e42b-4040-b249-916e8f2bf6e1"}
+{"display":"salviamo il token al'interno del server","pastedContents":{},"timestamp":1773699230903,"project":"/home/massimiliano","sessionId":"13ca57cf-e42b-4040-b249-916e8f2bf6e1"}
+{"display":"exit","pastedContents":{},"timestamp":1773699269614,"project":"/home/massimiliano","sessionId":"13ca57cf-e42b-4040-b249-916e8f2bf6e1"}
+{"display":"come siamo messi con il download su gaia_","pastedContents":{},"timestamp":1774031978814,"project":"/home/massimiliano","sessionId":"7ae3655f-6112-42f8-8eb5-1d95be8c0492"}
+{"display":"check the downlaod of llama on gaia","pastedContents":{},"timestamp":1774044790446,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"search wit mcp on the last chat","pastedContents":{},"timestamp":1774045527157,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"the last plan","pastedContents":{},"timestamp":1774045531957,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/config","pastedContents":{},"timestamp":1774045673129,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/context","pastedContents":{},"timestamp":1774045728342,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"for the next time thrott;e the ingress too","pastedContents":{},"timestamp":1774045779320,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/model","pastedContents":{},"timestamp":1774045879577,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"setup the ifb","pastedContents":{},"timestamp":1774045956477,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"make it 10Mbit","pastedContents":{},"timestamp":1774046045331,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"kore","pastedContents":{},"timestamp":1774046130612,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"vheck the download progress once","pastedContents":{},"timestamp":1774046295170,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"vheck the download progress once","pastedContents":{},"timestamp":1774047068688,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"vheck the download progress once","pastedContents":{},"timestamp":1774047737026,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"vheck the download progress once","pastedContents":{},"timestamp":1774048844424,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"vheck the download progress once","pastedContents":{},"timestamp":1774052916390,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/clear","pastedContents":{},"timestamp":1774053011761,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/clear","pastedContents":{},"timestamp":1774053023102,"project":"/data/massimiliano","sessionId":"69e7d3e7-abdf-4296-b079-8a6d421fbdd2"}
+{"display":"/ralph-loop:ralph-loop","pastedContents":{},"timestamp":1774053029143,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"/ralph-loop:ralph-loop spawn how many academic_researchers you want, we need to research everything that can be seen as useful given SOL, GAYA and KORE; in deep; the after every agent completes the search will update the KORE; you need to end the tokens doing perfect research;","pastedContents":{},"timestamp":1774054201683,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"/ralph-loop:ralph-loop spawn how many academic_researchers you want, we need to research everything that can be seen as useful given SOL, GAYA and KORE; in deep; the after every agent completes the search will update the KORE; you need to end the tokens doing perfect research;","pastedContents":{},"timestamp":1774054223668,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"/permissions","pastedContents":{},"timestamp":1774054274689,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"/bypass-permission","pastedContents":{},"timestamp":1774054296452,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"dungerosly-bypass-permission","pastedContents":{},"timestamp":1774054310406,"project":"/data/massimiliano","sessionId":"d7216c18-469a-4aa3-ab1a-967fe36d30cb"}
+{"display":"/model","pastedContents":{},"timestamp":1774055756727,"project":"/data/massimiliano","sessionId":"c748cfb9-a9b6-42b1-a558-415bf5da2773"}
+{"display":"exit","pastedContents":{},"timestamp":1774055823425,"project":"/data/massimiliano","sessionId":"c748cfb9-a9b6-42b1-a558-415bf5da2773"}
+{"display":"/resume","pastedContents":{},"timestamp":1774055855863,"project":"/data/massimiliano","sessionId":"77b4c94c-66a1-4363-82e6-1100b8fe2a3c"}
+{"display":"continue here pls","pastedContents":{},"timestamp":1774055903077,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"/model","pastedContents":{},"timestamp":1774055982214,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"/model","pastedContents":{},"timestamp":1774056021732,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"/mcp","pastedContents":{},"timestamp":1774056250539,"project":"/data/massimiliano","sessionId":"a584b106-0e76-429d-9dfb-b54b3757496d"}
+{"display":"prefer using the mcp tools","pastedContents":{},"timestamp":1774056324081,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"exit","pastedContents":{},"timestamp":1774056332564,"project":"/data/massimiliano","sessionId":"a584b106-0e76-429d-9dfb-b54b3757496d"}
+{"display":"what we have discovered, make a summary","pastedContents":{},"timestamp":1774079656072,"project":"/data/massimiliano","sessionId":"368e09c8-a0fd-4cd4-aae9-b137231c8ee2"}
+{"display":"exit","pastedContents":{},"timestamp":1774079768943,"project":"/data/massimiliano","sessionId":"368e09c8-a0fd-4cd4-aae9-b137231c8ee2"}
+{"display":"make a summary report of all the research","pastedContents":{},"timestamp":1774079965633,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"continue with the search, for the arguments touched by the repos and wiki","pastedContents":{},"timestamp":1774080927057,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources","pastedContents":{},"timestamp":1774081245883,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"add a wave for mcp, agent_framework research and agent-framework applied to claude code and better patterns and use of claude code","pastedContents":{},"timestamp":1774081699990,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources","pastedContents":{},"timestamp":1774082160075,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources, let's expand on design (design pattern, lloyd-wright, etc), architecture, moda, my opml rss feed","pastedContents":{},"timestamp":1774082466907,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources","pastedContents":{},"timestamp":1774082975560,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources, research math, econ, cs, physics,cosmology, etc","pastedContents":{},"timestamp":1774083725526,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"we can use much more resources, add security, audit, infrastructure lifecycle, defense, hacking, cvs","pastedContents":{},"timestamp":1774083813962,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"now conclude writhing the reserch done on to KORE","pastedContents":{},"timestamp":1774094761110,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"recheck everything done e be sure that all is on KORE, sequentially","pastedContents":{},"timestamp":1774095033863,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"The ~39 Wave 10 agents that hit rate limit -> relaunch those to complete","pastedContents":{},"timestamp":1774098657578,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"check the progress pls","pastedContents":{},"timestamp":1774100478740,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"yes in deep","pastedContents":{},"timestamp":1774100774742,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"now create a report of the last research","pastedContents":{},"timestamp":1774101580939,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"/config","pastedContents":{},"timestamp":1774101773006,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"/config","pastedContents":{},"timestamp":1774101783071,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
+{"display":"exit","pastedContents":{},"timestamp":1774102504218,"project":"/data/massimiliano","sessionId":"ba38061c-d797-41bd-ba6f-6425325fdd3b"}
