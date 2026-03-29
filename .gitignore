@@ -5,3 +5,5 @@ audit/
 *.pem
 .claude.json
 projects
+plugins/cache/
+plugins/data/
