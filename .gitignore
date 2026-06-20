@@ -1,6 +1,9 @@
 # API key config
 .claude.json
 
+# Local-only permission overrides (sensitive grants: ssh_exec, gaia access, dangerous-mode)
+settings.local.json
+
 # Conversations (2.2GB, on HDD RAID1)
 projects
 
