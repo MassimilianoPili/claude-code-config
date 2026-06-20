@@ -285,10 +285,6 @@
           },
           {
             "type": "command",
-            "command": "/data/massimiliano/claude-code-config/hooks/auto-stage.sh"
-          },
-          {
-            "type": "command",
             "command": "/data/massimiliano/claude-code-config/hooks/complexity-gate.sh",
             "async": true
           },
