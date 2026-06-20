@@ -266,14 +266,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/data/massimiliano/claude-code-config/hooks/protect-sensitive-files.sh"
-          },
-          {
-            "type": "command",
-            "command": "/data/massimiliano/claude-code-config/hooks/scan-secrets-in-content.sh"
-          },
-          {
-            "type": "command",
             "command": "/data/massimiliano/claude-code-config/hooks/validate-research-report.sh"
           }
         ]
@@ -429,10 +421,6 @@
           {
             "type": "command",
             "command": "/data/massimiliano/claude-code-config/hooks/readme-update-reminder.sh"
-          },
-          {
-            "type": "command",
-            "command": "/data/massimiliano/claude-code-config/hooks/validate-staged-secrets.sh"
           },
           {
             "type": "command",
